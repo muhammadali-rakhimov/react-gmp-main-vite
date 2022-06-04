@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import styled from "./Header.module.css";
-import wallpaper from "../../../public/img/header-background.png";
+import wallpaper from "/img/header-background.png";
 
 const Header = () => {
   const [input, setInput] = useState('')
 
   return (
-    <>
+    <Fragment>
       <nav
         style={{ backgroundImage: `url(${wallpaper})` }}
         className={`${styled.parent} navbar navbar-light p-5`}
@@ -37,7 +37,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-    </>
+    </Fragment>
   );
 };
 

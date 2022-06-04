@@ -1,24 +1,26 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Header from "./Components/Header";
-import Main from "./Components/Main";
-import Footer from "./Components/Footer";
+import Header from "../features/Header/Header";
+import Main from "../features/Main/Main";
+import Footer from "../features/Footer/Footer";
 
 const App = () => {
   return (
-    <div className="App container-fluid min-vh-100 d-flex flex-column">
-      <div className="container">
-        <div className="row">
-          <Header />
+    <Fragment>
+      <div className="container-fluid min-vh-100 d-flex flex-column">
+        <div className="container">
+          <div className="row">
+            <Header />
+          </div>
+        </div>
+        <div className="container">
+          <div className="row flex-grow-1">
+            <Main />
+            <Footer />
+          </div>
         </div>
       </div>
-      <div className="container">
-        <div className="row flex-grow-1">
-          <Main />
-          <Footer />
-        </div>
-      </div>
-    </div>
+    </Fragment>
   );
 };
 

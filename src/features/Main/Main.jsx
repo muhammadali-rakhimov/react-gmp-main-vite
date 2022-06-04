@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "./Main.module.css";
-import Movies from "./Movies";
 
 const Main = () => {
   const [toggle, setToggle] = useState(false);
@@ -57,7 +56,6 @@ const Main = () => {
       </nav>
       <hr />
       <p>39 movies found</p>
-      <Movies />
     </div>
   );
 };
