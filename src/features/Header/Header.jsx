@@ -1,9 +1,21 @@
-import React, { Fragment, useState } from "react";
-import styled from "./Header.module.css";
-import wallpaper from "/img/header-background.png";
+import React, { Fragment, useEffect, useState } from "react";
+import styled from "./Header.module.scss";
+import wallpaper from "@images/header-background.png";
+import AddMovie from "@base/AddMovie";
+import Search from "@base/Search";
+import SearchButton from "@base/SearchButton";
+import ErrorBoundary from "@features/ErrorBoundary/ErrorBoundary";
 
 const Header = () => {
-  const [input, setInput] = useState('')
+  const [input, setInput] = useState("");
+  const [toggle, setToggle] = useState(false);
+
+  useEffect(() => {
+    if (toggle) {
+      document.write(Error("Crashed with Error Boundary!"));
+      throw new Error("Crashed with Error Boundary!");
+    }
+  }, [toggle]);
 
   return (
     <Fragment>
@@ -16,23 +28,17 @@ const Header = () => {
             <b>netflix</b>
             roulette
           </a>
-          <button className={`${styled.addMovie} p-2`}>+ ADD MOVIE</button>
+          <AddMovie />
         </div>
         <div className={`${styled.find} col p-5`}>
           <div className="container">
             <h1>FIND YOUR MOVIE</h1>
+            <br />
             <div>
-              <input
-                type="text"
-                className={`${styled.input} col col-md-9 p-3`}
-                placeholder="What do you want to watch?"
-                onChange={e => setInput(e.target.value)}
-              />
-              <input
-                type="submit"
-                className={`${styled.inputSubmit} col col-md-3 p-3`}
-                value="SEARCH"
-              />
+              <ErrorBoundary>
+                <Search toggle={toggle} setToggle={setToggle} />
+              </ErrorBoundary>
+              <SearchButton />
             </div>
           </div>
         </div>

@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import Header from "../features/Header/Header";
-import Main from "../features/Main/Main";
-import Footer from "../features/Footer/Footer";
+import Header from "@features/Header/Header";
+import MoviesSearch from "@features/MoviesSearch";
+import MoviesCards from "@features/MoviesCards";
+import Footer from "@features/Footer/Footer";
 
 const App = () => {
   return (
@@ -15,7 +16,8 @@ const App = () => {
         </div>
         <div className="container">
           <div className="row flex-grow-1">
-            <Main />
+            <MoviesSearch />
+            <MoviesCards />
             <Footer />
           </div>
         </div>
